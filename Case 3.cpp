@@ -10,8 +10,21 @@ double highSales, lowSales;
 int highMonth, lowMonth;
 string highStore, lowStore;
 
-void readFile(int sales[][12], string stores[]){
+void readFile (int sales [][12], string stores []) {
 	
+	ifstream inFile ;
+	inFile.open("sales2014.dat") ;
+	
+	for (int i = 0; i < 5 ; i++){
+		
+		for (int j = 0; j < 12; j++){
+		inFile >> sales[i][j] ;
+		}
+		inFile.ignore() ;
+		getline(inFile, stores [i]);
+	}
+	
+	inFile.close() ;
 }
 
 double grandTotalSales(double totalSalesStore[]){
